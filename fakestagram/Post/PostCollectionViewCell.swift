@@ -9,11 +9,23 @@
 import UIKit
 
 class PostCollectionViewCell: UICollectionViewCell {
-    public var post: Post!
+    
+    @IBOutlet weak var imageViev: UIImageView!
+    @IBOutlet weak var authorView: PostAuthorView!
+    @IBOutlet weak var titleLbl: UITextView!
+    @IBOutlet weak var likesCountLbl: UILabel!
+    
+    public var post: Post? {
+        didSet {
+            updateContent()
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    func updateContent(){
+        guard let postUpdate = self.post else {return}
+    }
 }

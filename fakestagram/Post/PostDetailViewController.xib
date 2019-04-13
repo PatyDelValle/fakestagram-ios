@@ -90,7 +90,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nto-lF-Kms" secondAttribute="trailing" id="tJb-ex-XOK"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="95" y="-105"/>
+            <point key="canvasLocation" x="482" y="-90"/>
         </view>
     </objects>
 </document>

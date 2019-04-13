@@ -90,6 +90,12 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="349" height="567"/>
+            <connections>
+                <outlet property="authorView" destination="Sni-u6-baQ" id="XBQ-ac-HW2"/>
+                <outlet property="imageViev" destination="B7R-9H-BNz" id="RQX-4P-9mC"/>
+                <outlet property="likesCountLbl" destination="lfa-mc-RD9" id="aGR-Iu-CNN"/>
+                <outlet property="titleLbl" destination="UCK-8L-B25" id="WG4-fL-hRa"/>
+            </connections>
             <point key="canvasLocation" x="375.19999999999999" y="385.90704647676165"/>
         </collectionViewCell>
     </objects>

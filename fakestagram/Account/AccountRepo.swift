@@ -10,9 +10,12 @@ import Foundation
 
 class AccountRepo {
     static let shared = AccountRepo()
-    let restClient = RestClient<Account>(client: Client(), path: "/api/accounts")
+    
+    //let restClient = RestClient<Account>(client: Client(), path: "/api/accounts")
+     let client = AccountClient()
     
     typealias accountResponse = (Account) -> Void
+    
     func loadOrCreate(success: accountResponse?) {
         if let account = load() {
             success?(account)
@@ -31,6 +34,8 @@ class AccountRepo {
     }
     
     func create(_ account: Account, success: @escaping (Account) -> Void) {
-        restClient.create(codable: account, success: success)
+        //restClient.create(codable: account, success: success) ya que estamos usando el constructor
+        client.create(codable: account, success: success)
+
     }
 }
