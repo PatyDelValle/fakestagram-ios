@@ -11,6 +11,10 @@ import UIKit
 
 @IBDesignable
 class PostAuthorView: UIView {
+    /*var author = Author?.self {
+        didSet {updateView()}
+    }
+ */
     var author: Author!
     let avatarView: SVGView = SVGView()
     let nameLabel: UILabel = UILabel()
@@ -55,5 +59,10 @@ class PostAuthorView: UIView {
             nameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -5),
             nameLabel.heightAnchor.constraint(equalToConstant: 32)
             ])
+    }
+    private func updateView(){
+        guard let author = self.author else {return}
+        nameLabel.text = author.name
+        //avatarView.loadContent(for: author.avatarURL())
     }
 }

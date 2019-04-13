@@ -14,6 +14,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         AccountRepo.shared.loadOrCreate { (account) in
+            
+            if let uuid = account.id {
+                Secrets.uuid.set(value: uuid)
+            }
+            /*
+            let Default = UserDefaults.standard
+            Default.set(account.id,forKey: "uuid")
+            Default.set(account.name, forKey: "uuid_name")
+            print ("Datos grabados")
+            print(Default.string(forKey: "uuid"))
+            print(Default.string(forKey: "uuid_name"))
+           */
             print(account)
         }
         return true

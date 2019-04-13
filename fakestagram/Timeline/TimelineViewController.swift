@@ -14,7 +14,7 @@ class TimelineViewController: UIViewController, UICollectionViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         postsCollectionView.delegate = self
-
+        print(Secrets.uuid.value)
         // Do any additional setup after loading the view.
     }
     
