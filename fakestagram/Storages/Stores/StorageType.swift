@@ -38,5 +38,4 @@ enum StorageType {
             try? fileManager.removeItem(at: folder)
         }
         try? fileManager.createDirectory(at: folder, withIntermediateDirectories: false, attributes: nil)
-    }
-}
+    }}

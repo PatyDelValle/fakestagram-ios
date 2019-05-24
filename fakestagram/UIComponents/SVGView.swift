@@ -9,8 +9,13 @@
 import UIKit
 import WebKit
 
-class SVGView: UIView {
-    let image: WKWebView = WKWebView()
+class SVGView: UIView{
+    let image: WKWebView = {
+        let config = WKWebViewConfiguration()
+        let wkv = WKWebView(frame: .zero, configuration: config)
+        wkv.translatesAutoresizingMaskIntoConstraints = false
+        return wkv
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,6 +27,12 @@ class SVGView: UIView {
         setupView()
     }
     
-    func setupView() {
+    private func setupView() {
+        backgroundColor = .purple
+    }
+    
+    public func loadContent(from url: URL) {
+        let req = URLRequest(url: url)
+        image.load(req)
     }
 }

@@ -17,7 +17,7 @@ class RestClient<T> where T: Codable {
         self.client = client
         self.path = path
     }
-
+    
     func show(success: @escaping codableResponse) {
         request("GET", path: "\(path)", payload: nil, success: success, errorHandler: nil)
     }
@@ -32,14 +32,14 @@ class RestClient<T> where T: Codable {
     func create(codable: T, success: @escaping codableResponse) {
         request("POST", path: "\(path)", payload: codable, success: success, errorHandler: nil)
     }
-
+    
     func update(id: Int, codable: T, success: @escaping codableResponse) {
         update(id: "\(id)", codable: codable, success: success)
     }
     func update(id: String, codable: T, success: @escaping codableResponse) {
         request("PATCH", path: "\(path)/\(id)", payload: codable, success: success, errorHandler: nil)
     }
-   
+    
     func destroy(id: Int, success: @escaping codableResponse) {
         destroy(id: "\(id)", success: success)
     }
@@ -56,8 +56,9 @@ class RestClient<T> where T: Codable {
             do {
                 guard let data = data else { print("Empty response"); return }
                 let json = try decoder.decode(T.self, from: data)
-                print("===================================================================")
                 success(json)
+                print("============REQUEST decoder=======================")
+                
             } catch let err {
                 print("Unable to parse successfull response: \(err.localizedDescription)")
                 errorHandler?(err)

@@ -1,7 +1,7 @@
 //
 //  Account.swift
 //  fakestagram
-//
+// estructura para GENERAR DE CUENTAS DE USUARIOS
 //  Created by LuisE on 3/17/19.
 //  Copyright © 2019 3zcurdia. All rights reserved.
 //

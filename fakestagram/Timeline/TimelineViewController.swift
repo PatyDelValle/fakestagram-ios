@@ -1,30 +1,27 @@
 //
 //  TimelineViewController.swift
 //  fakestagram
-//
-//  Created by LuisE on 3/16/19.
-//  Copyright © 2019 3zcurdia. All rights reserved.
-//
+
 
 import UIKit
 
-class TimelineViewController: UIViewController, UICollectionViewDelegate {
+class TimelineViewController: UIViewController { 
     @IBOutlet weak var postsCollectionView: UICollectionView!
     let client = TimeLineClient()
-    var post: [Post] = [] {
-        didSet { updateCollection()}
+    var posts: [Post] = [] {
+        //didSet { updateCollection()}
+        didSet { postsCollectionView.reloadData()}
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //postsCollectionView.register(UICollectionViewCell.self(<#T##NSObject#>), forCellWithReuseIdentifier: <#T##String#>)
-        postsCollectionView.delegate = self
-        postsCollectionView.dataSource = self
+        //print(Secrets.token.value!)
         
+        configCollectionView()
         client.show { [weak self] data in
-            self?.post = data
+            self?.posts = data
+            
         }
-        print(Secrets.uuid.value)
 
     }
     
@@ -40,33 +37,42 @@ class TimelineViewController: UIViewController, UICollectionViewDelegate {
     */
 
     func updateCollection () {
-        print ("======", post.count, "=======")
-        print (post[1])
-        print (post[2])
-        print ("Autor: ", post[0].author?.name)
-        print ("Likes Count: " ,post[0].likesCount)
-        print ("CreatAt: ", post[0].createdAt)
-        print ("=============")
+        print ("======", posts.count, "=======")
+        for p in posts {
+            print (p)
+        }
+    }
+
+    
+    private func configCollectionView() {
+        postsCollectionView.delegate = self
+        postsCollectionView.dataSource = self
+        let postCollectionViewCellXib = UINib(nibName: String(describing: PostCollectionViewCell.self), bundle: nil)
+        
+        postsCollectionView.register(postCollectionViewCellXib, forCellWithReuseIdentifier: PostCollectionViewCell.reuseIdentifier)
     }
 }
 
+//==============MANEJO DEL COLLECTION VIEW ===========================
 
-extension TimelineViewController :  UICollectionViewDataSource , UICollectionViewDelegateFlowLayout{
+extension TimelineViewController :  UICollectionViewDelegate, UICollectionViewDataSource , UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 120, height: 120)
+        //return CGSize(width: 120, height: 120)
+         return CGSize(width: self.postsCollectionView.frame.width, height: 600)
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return post.count
+        return posts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "postViewCell", for: indexPath) as! PostCollectionViewCell
-        cell.backgroundColor = .red
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PostCollectionViewCell.reuseIdentifier, for: indexPath) as! PostCollectionViewCell
+        //cell.backgroundColor = .red
+        cell.post = posts[indexPath.row]
         return cell
     }
     
