@@ -92,7 +92,7 @@
             <size key="customSize" width="349" height="567"/>
             <connections>
                 <outlet property="authorView" destination="Sni-u6-baQ" id="XBQ-ac-HW2"/>
-                <outlet property="commentsCountLbl" destination="lfa-mc-RD9" id="NzJ-D6-bhr"/>
+                <outlet property="commentsCountLbl" destination="00E-Fs-pbe" id="W2Z-Yo-7aK"/>
                 <outlet property="imageView" destination="B7R-9H-BNz" id="fRP-QE-09Y"/>
                 <outlet property="likesCountLbl" destination="lfa-mc-RD9" id="aGR-Iu-CNN"/>
                 <outlet property="titleLbl" destination="UCK-8L-B25" id="WG4-fL-hRa"/>

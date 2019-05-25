@@ -1,0 +1,10 @@
+  232  git status
+  233  pwd
+  234  git push origin paty_Account
+  235  git status
+  236  history | tail -10
+  237  history | tail -10 >> actualizar en git 
+  238  ls -l
+  239  cat actualizar 
+  240  rm actualizar 
+  241  history | tail -10 >> actualizar_Git

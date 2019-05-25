@@ -1,10 +1,6 @@
 //
 //  PostCollectionViewCell.swift
 //  fakestagram
-//
-//  Created by LuisE on 3/16/19.
-//  Copyright © 2019 3zcurdia. All rights reserved.
-//
 
 import UIKit
 
@@ -22,6 +18,7 @@ class PostCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var likesCountLbl: UILabel!
     @IBOutlet weak var commentsCountLbl: UILabel!
     
+    //awakeFromNib recargar la vista actualizada
     override func awakeFromNib() {
         super.awakeFromNib()
         updateView()

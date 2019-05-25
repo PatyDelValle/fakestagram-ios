@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A118A5322988C9E0077D2FA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A118A5222988C9E0077D2FA /* ProfileViewController.swift */; };
 		4D0C75EA2262462E00463B75 /* AccountClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0C75E92262462E00463B75 /* AccountClient.swift */; };
 		4D0C75EC2262478D00463B75 /* TimeLineClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0C75EB2262478D00463B75 /* TimeLineClient.swift */; };
 		E04FB2DC2249F2AB00B81C8A /* CodableStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04FB2DB2249F2AB00B81C8A /* CodableStore.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A118A5222988C9E0077D2FA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4D0C75E92262462E00463B75 /* AccountClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountClient.swift; sourceTree = "<group>"; };
 		4D0C75EB2262478D00463B75 /* TimeLineClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineClient.swift; sourceTree = "<group>"; };
 		E04FB2DB2249F2AB00B81C8A /* CodableStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableStore.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				E0BB9750223F57C400D028A1 /* Date+timestamp.swift */,
 				E0BB9754223F5EDA00D028A1 /* Name.swift */,
 				E0BB9752223F5DFB00D028A1 /* Names.plist */,
+				1A118A5222988C9E0077D2FA /* ProfileViewController.swift */,
 			);
 			path = fakestagram;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				E0DDFA25223E0017009EB136 /* SVGView.swift in Sources */,
 				E04FB2E22249F52900B81C8A /* AccountStorage.swift in Sources */,
 				E04FB2DC2249F2AB00B81C8A /* CodableStore.swift in Sources */,
+				1A118A5322988C9E0077D2FA /* ProfileViewController.swift in Sources */,
 				E0BCD23B22489E2300B4E0F6 /* HttpResponse.swift in Sources */,
 				E0DDFA31223E181C009EB136 /* PostDetailViewController.swift in Sources */,
 				E0BB974D223F45EA00D028A1 /* Account.swift in Sources */,
