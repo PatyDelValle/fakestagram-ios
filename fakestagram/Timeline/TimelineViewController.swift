@@ -36,6 +36,7 @@ class TimelineViewController: UIViewController {
         self.view.addSubview(loadingIndicator)
 
         client.show { [weak self] data in
+            print ("llego a show")
             self?.posts = data
             self?.loadingIndicator.stopAnimating()
             self?.postsCollectionView.reloadData()

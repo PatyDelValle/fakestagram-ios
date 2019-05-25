@@ -32,10 +32,38 @@ class CameraViewController: UIViewController {
 
     @IBAction func onTapCapture(_ sender: Any) {
         print("posting....")
-        let img = UIImage(named: "church")!
-        createPost(img: img)
+        //let img = UIImage(named: "church")!
+        //createPost(img: img)
+        choosePicture()
     }
-
+    
+    func choosePicture() {
+            
+            let pickerController = UIImagePickerController()
+            
+            pickerController.allowsEditing = true
+            // delegate nos avisa que el usuario ha cancelado la visualizacion de las fotos
+            pickerController.delegate = self
+            
+            let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            
+            actionSheet.addAction(UIAlertAction(title: "Camara", style: .default, handler: { (action) in
+                pickerController.sourceType = .camera
+                
+                self.present(pickerController, animated: true, completion: nil)
+            }))
+            
+            actionSheet.addAction(UIAlertAction(title: "Biblioteca", style: .default, handler: { (action) in
+                pickerController.sourceType = .photoLibrary
+                
+                self.present(pickerController, animated: true, completion: nil)
+            }))
+            
+            actionSheet.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+            
+            present(actionSheet,animated: true, completion: nil)
+        }
+    
     func enableBasicLocationServices() {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.delegate = self
@@ -48,7 +76,7 @@ class CameraViewController: UIViewController {
             print("Enable location features")
         }
     }
-
+    
     func createPost(img: UIImage) {
         guard let imgBase64 = img.encodedBase64() else { return }
         let timestamp = Date().currentTimestamp()
@@ -73,4 +101,21 @@ extension CameraViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         self.currentLocation = locations.last
     }
+}
+
+extension CameraViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        guard let imagen = info[.editedImage]as? UIImage else {return}
+       
+        //imageView.image = imagen
+        createPost(img: imagen)
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    
 }

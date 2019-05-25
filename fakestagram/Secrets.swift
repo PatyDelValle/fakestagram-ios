@@ -7,7 +7,7 @@
 //
 
 import Foundation
-//import SAMKeychain
+import SAMKeychain
 
 enum Secrets {
     static let account = "com.3zcurdia.fakestagram"
@@ -19,14 +19,14 @@ enum Secrets {
         case .host:
             return "https://fakestagram-api.herokuapp.com/"
         case .token:
-            return "" //SAMKeychain.password(forService: "authentication", account: Secrets.account)
+            return SAMKeychain.password(forService: "authentication", account: Secrets.account)
         }
     }
 
     func set(value: String) -> Bool {
         switch self {
         case .token:
-            //SAMKeychain.setPassword(value, forService: "authentication", account: Secrets.account)
+            SAMKeychain.setPassword(value, forService: "authentication", account: Secrets.account)
             return true
         default:
             return false

@@ -15,7 +15,7 @@ class TimelineClient: RestClient<[Post]> {
 
     func show(page: Int, success: @escaping codableResponse) {
         let items = ["page": String(page)]
-        request("GET", path: "\(path)", queryItems: items, payload: nil, success: success, errorHandler: nil)
+        request("GET", path: "\(path)", queryItems: items, payload: nil, success: success, errorHandler: { _ in print("Error...")})
     }
 
     // show()
